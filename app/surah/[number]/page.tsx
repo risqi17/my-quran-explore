@@ -1,23 +1,22 @@
-'use client'
+"use client";
 import { AL_QURAN_EDITION, API_SURAH_URL } from "@/config";
 import { Surah } from "@/interfaces";
 import { getCombinedAyat } from "@/utils/misc";
 import { Metadata, GetServerSideProps } from "next";
 import Image from "next/image";
 
-
-const AlQuranSurah = ({ currentSurah, listOfAyat = [] }: any) => {
-
-  console.log(currentSurah);
+async function getData(params:string) {
+  const res = await fetch(`${API_SURAH_URL}/${params}`);
+  const data = await res.json();
   
-    const metadata: Metadata = {
-      title: `Surah ${currentSurah?.englishName}`,
-      description: "",
-      keywords: ""
-    }
+  return data.data.ayahs; 
+}
+export default function Detail({params}:{params:{number:string}}) {
+
+  const dataSurah = getData(params.number);
   
-    return (
-        <div className="bg-[#181820]">
+  return (
+    <div className="bg-[#181820]">
         <div className="fixed left-1/2 top-0 z-20 flex h-14 w-full -translate-x-1/2 bg-[#181820] text-gray-600 sm:h-20">
           <div className="mx-auto flex w-full w-full max-w-xl items-center justify-between bg-slate-200 px-3.5 sm:px-5">
             <a href="/">
@@ -90,82 +89,7 @@ const AlQuranSurah = ({ currentSurah, listOfAyat = [] }: any) => {
                 (1)
               </div>
             </div>
-            <div className="border-t border-gray-200 px-3.5 py-8 sm:px-6">
-              <div
-                className="font-arabic mb-4 text-2xl font-thin leading-10 sm:text-3xl sm:leading-loose"
-                translate="no"
-                style={{ direction: "rtl" }}
-              >
-                ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَـٰلَمِینَ&nbsp;
-              </div>
-              <div className="sm:text-md text-sm">
-                Segala puji bagi Allah, Tuhan semesta alam. (2)
-              </div>
-            </div>
-            <div className="border-t border-gray-200 px-3.5 py-8 sm:px-6">
-              <div
-                className="font-arabic mb-4 text-2xl font-thin leading-10 sm:text-3xl sm:leading-loose"
-                translate="no"
-                style={{ direction: "rtl" }}
-              >
-                ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ&nbsp;
-              </div>
-              <div className="sm:text-md text-sm">
-                Maha Pemurah lagi Maha Penyayang. (3)
-              </div>
-            </div>
-            <div className="border-t border-gray-200 px-3.5 py-8 sm:px-6">
-              <div
-                className="font-arabic mb-4 text-2xl font-thin leading-10 sm:text-3xl sm:leading-loose"
-                translate="no"
-                style={{ direction: "rtl" }}
-              >
-                مَـٰلِكِ یَوۡمِ ٱلدِّینِ&nbsp;
-              </div>
-              <div className="sm:text-md text-sm">
-                Yang menguasai di Hari Pembalasan. (4)
-              </div>
-            </div>
-            <div className="border-t border-gray-200 px-3.5 py-8 sm:px-6">
-              <div
-                className="font-arabic mb-4 text-2xl font-thin leading-10 sm:text-3xl sm:leading-loose"
-                translate="no"
-                style={{ direction: "rtl" }}
-              >
-                إِیَّاكَ نَعۡبُدُ وَإِیَّاكَ نَسۡتَعِینُ&nbsp;
-              </div>
-              <div className="sm:text-md text-sm">
-                Hanya Engkaulah yang kami sembah, dan hanya kepada Engkaulah kami
-                meminta pertolongan. (5)
-              </div>
-            </div>
-            <div className="border-t border-gray-200 px-3.5 py-8 sm:px-6">
-              <div
-                className="font-arabic mb-4 text-2xl font-thin leading-10 sm:text-3xl sm:leading-loose"
-                translate="no"
-                style={{ direction: "rtl" }}
-              >
-                ٱهۡدِنَا ٱلصِّرَ&nbsp;ٰطَ ٱلۡمُسۡتَقِیمَ&nbsp;
-              </div>
-              <div className="sm:text-md text-sm">
-                Tunjukilah kami jalan yang lurus, (6)
-              </div>
-            </div>
-            <div className="border-t border-gray-200 px-3.5 py-8 sm:px-6">
-              <div
-                className="font-arabic mb-4 text-2xl font-thin leading-10 sm:text-3xl sm:leading-loose"
-                translate="no"
-                style={{ direction: "rtl" }}
-              >
-                صِرَ&nbsp;ٰطَ ٱلَّذِینَ أَنۡعَمۡتَ عَلَیۡهِمۡ غَیۡرِ ٱلۡمَغۡضُوبِ
-                عَلَیۡهِمۡ وَلَا ٱلضَّاۤلِّینَ&nbsp;
-              </div>
-              <div className="sm:text-md text-sm">
-                (yaitu) Jalan orang-orang yang telah Engkau beri nikmat kepada
-                mereka; bukan (jalan) mereka yang dimurkai dan bukan (pula jalan)
-                mereka yang sesat. (7)
-              </div>
-            </div>
+            
           </div>
         </div>
         <div className="fixed bottom-0 left-1/2 w-full max-w-xl -translate-x-1/2 bg-gradient-to-r from-green-400 to-blue-500 px-3.5 py-3.5 text-white sm:px-5 sm:py-5">
@@ -215,9 +139,7 @@ const AlQuranSurah = ({ currentSurah, listOfAyat = [] }: any) => {
           </div>
         </div>
       </div>
-    );
-  };
-  
-  export default AlQuranSurah;
+  )
+}
 
 
