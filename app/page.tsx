@@ -29,7 +29,7 @@ export default function Home() {
           <div className="w-6"></div>
         </div>
       </div>
-      <div className="relative mt-8 left-1/2 top-0 w-full max-w-xl -translate-x-1/2 bg-white pt-20">
+      <div className="relative mt-2 left-1/2 top-0 w-full max-w-xl -translate-x-1/2 bg-white pt-20">
         <div className="px-6">
           <div className="mb-4">
             <div className="rounded-sm bg-[#656d4a] p-5 text-white">
@@ -49,7 +49,7 @@ export default function Home() {
                   ></path>
                 </svg>
                 <span className="ml-2 text-sm">
-                  Mulai One Day One Ayat sekarang!
+                  Awali hari dengan membaca Al Quran
                 </span>
               </div>
             </div>

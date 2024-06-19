@@ -35,7 +35,7 @@ export default async function Detail({params}:{params:{number:string}}) {
     <div className="bg-[#181820]">
         <div className="fixed left-1/2 top-0 z-20 flex h-14 w-full -translate-x-1/2 bg-[#181820] text-gray-600 sm:h-20">
           <div className="mx-auto flex w-full w-full max-w-xl items-center justify-between bg-[#333d29] px-3.5 sm:px-5">
-            <a href="/">
+            <Link href={'/'}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -50,7 +50,7 @@ export default async function Detail({params}:{params:{number:string}}) {
                   d="M15.75 19.5L8.25 12l7.5-7.5"
                 ></path>
               </svg>
-            </a>
+            </Link>
             <div className="w-full pl-4 text-left text-lg font-bold text-white sm:text-xl">
               Surah {currentSurah?.englishName}
             </div>
@@ -123,7 +123,7 @@ export default async function Detail({params}:{params:{number:string}}) {
             <div className="flex-1 pt-1 text-center text-sm"></div>
             <div className="flex-1 text-right lg:pr-2">
               {currentSurah?.number > 1 &&
-                <Link href={getSurahName(currentSurah?.number - 1)} className="color-grey flex items-center justify-end text-sm">
+                <Link href={`${MENU.AL_QURAN_SURAH}/${currentSurah?.number - 1}`} className="color-grey flex items-center justify-end text-sm">
                 {getSurahName(currentSurah?.number - 1)}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
