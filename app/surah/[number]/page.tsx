@@ -34,14 +34,14 @@ export default async function Detail({params}:{params:{number:string}}) {
   return (
     <div className="bg-[#181820]">
         <div className="fixed left-1/2 top-0 z-20 flex h-14 w-full -translate-x-1/2 bg-[#181820] text-gray-600 sm:h-20">
-          <div className="mx-auto flex w-full w-full max-w-xl items-center justify-between bg-slate-200 px-3.5 sm:px-5">
+          <div className="mx-auto flex w-full w-full max-w-xl items-center justify-between bg-[#333d29] px-3.5 sm:px-5">
             <a href="/">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
-                stroke="currentColor"
+                stroke="#ffffff"
                 className="h-6 w-6"
               >
                 <path
@@ -51,7 +51,7 @@ export default async function Detail({params}:{params:{number:string}}) {
                 ></path>
               </svg>
             </a>
-            <div className="w-full pl-4 text-left text-lg font-bold text-slate-700 sm:text-xl">
+            <div className="w-full pl-4 text-left text-lg font-bold text-white sm:text-xl">
               Surah {currentSurah?.englishName}
             </div>
           </div>
@@ -60,7 +60,7 @@ export default async function Detail({params}:{params:{number:string}}) {
           
         <div className="relative left-1/2 top-0 w-full max-w-xl -translate-x-1/2 bg-white py-20">
           <div className="px-3.5">
-            <div className="mx-3.5 mb-8 mt-4 rounded-sm bg-gradient-to-bl from-green-500 to-blue-400 px-3 py-12 text-center font-semibold text-white drop-shadow-xl sm:mx-auto sm:max-w-sm">
+            <div className="mx-2 mb-8 mt-4 rounded-sm bg-[#656d4a] px-1 py-12 text-center font-semibold text-white drop-shadow-xl sm:mx-auto ">
               <div
                 className="font-arabic undefined text-xl font-thin font-thin leading-10 sm:text-2xl sm:leading-loose"
                 translate="no"
@@ -72,7 +72,7 @@ export default async function Detail({params}:{params:{number:string}}) {
                 {currentSurah?.englishName}
               </div>
               <div className="sm:text-md text-sm font-thin">{currentSurah?.englishNameTranslation}</div>
-              <hr className="mx-auto my-4 w-2/3 opacity-50" />
+              <hr className="mx-auto my-4 w-3/4 opacity-50" />
               <small className="">
                 {currentSurah?.revelationType} &nbsp;&nbsp;-&nbsp;&nbsp; Surah ke {currentSurah?.number}
                 &nbsp;&nbsp;-&nbsp;&nbsp; {currentSurah?.numberOfAyahs} Ayat
@@ -82,7 +82,7 @@ export default async function Detail({params}:{params:{number:string}}) {
             {dataSurah.map(({ text, textTranslation, number, numberInSurah }) => (
               <div className="border-gray-200 px-3.5 py-8 sm:px-6" key={number}>
                 <div
-                  className="font-arabic mb-4 text-2xl font-thin leading-10 sm:text-3xl sm:leading-loose"
+                  className="font-arabic mb-4 text-2xl font-thin text-[#333d29] leading-10 sm:text-3xl sm:leading-loose"
                   translate="no"
                   style={{ direction: "rtl" }}
                 >
@@ -96,7 +96,7 @@ export default async function Detail({params}:{params:{number:string}}) {
             ))}
           </div>
         </div>
-        <div className="fixed bottom-0 left-1/2 w-full max-w-xl -translate-x-1/2 bg-gradient-to-r from-green-400 to-blue-500 px-3.5 py-3.5 text-white sm:px-5 sm:py-5">
+        <div className="fixed bottom-0 left-1/2 w-full max-w-xl -translate-x-1/2 bg-[#333d29] px-3.5 py-3.5 text-white sm:px-5 sm:py-5">
           <div className="mx-auto flex w-full max-w-xl">
             <div className="align-center flex flex-1 lg:pl-2">
               {currentSurah?.number < 114 &&
@@ -107,7 +107,7 @@ export default async function Detail({params}:{params:{number:string}}) {
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
-                  stroke="currentColor"
+                  stroke="#ffffff"
                   className="mr-1 h-6 w-6"
                 >
                   <path
